@@ -1,0 +1,38 @@
+<!doctype html>
+<head>
+    <title>Seqwiki</title>
+    <!-- boostrap css -->
+    <!--<link
+        rel="stylesheet"
+        href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.4/css/bootstrap.min.css"
+        integrity="sha384-2hfp1SzUoho7/TsGGGDaFdsuuDL0LX2hnUp6VkX3CUQ2K4K+xjboZdsXyp4oUHZj"
+        crossorigin="anonymous">-->
+
+    <!-- compiled css -->
+    <link rel=stylesheet type=text/css href="{{ url_for('static', filename='node_modules.css') }}">
+    <link rel=stylesheet type=text/css href="{{ url_for('static', filename='style.css') }}">
+
+    <!-- jquery -->
+    <!--<script
+      src="https://code.jquery.com/jquery-3.1.1.min.js"
+      integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+      crossorigin="anonymous"></script>-->
+    <!-- teather (for bootstrap tooltips) -->
+    <!--<script src="//cdnjs.cloudflare.com/ajax/libs/tether/1.3.1/js/tether.min.js"></script>-->
+    <!-- bootstrap js-->
+    <!--<script
+        src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.4/js/bootstrap.min.js"
+        integrity="sha384-VjEeINv9OSwtWFLAtmc4JCtEJXXBub00gtSnszmspDLCtC0I4z4nqz7rEFbIZLLU"
+        crossorigin="anonymous"></script>-->
+    <!-- compiled js -->
+    <script src="{{ url_for('static', filename='node_modules.js') }}"></script>
+    <script src="{{ url_for('static', filename='app.js') }}"></script>
+    {% block script %}{% endblock %}
+</head>
+<body>
+    <div class=page>
+        <div class=container>
+          {% block body %}{% endblock %}
+        </div>
+    </div>
+</body>

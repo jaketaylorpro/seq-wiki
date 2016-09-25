@@ -1,0 +1,26 @@
+{% extends "layout.html" %}
+{% block body %}
+    <div>
+        <form>
+            <div class=form-group>
+                <label class=sr-only for=seq-title>Title</label>
+                <input type=text class=form-control id=seq-title aria-describedby=seq-title-help placeholder="Name your seqwiki">
+                <small id=seq-title-help class="form-text text-muted text-xs-right">Someday you'll beable to search by this name.</small>
+            </div>
+            <div class="form-group">
+                <label class=sr-only for="seq-desc">Description</label>
+                <textarea class=form-control id=seq-desc rows=3 placeholder="Describe your seqwiki"></textarea>
+            </div>
+        </form>
+        <div class="row" id=edit-seq-panel></div>
+    </div>
+{% endblock %}
+{% block script %}
+    <script>
+    $(document).ready(function(){
+        ReactDOM.render(
+            React.createElement(window.SeqBlockEditPanel,{}),
+            document.getElementById('edit-seq-panel'));
+    })
+    </script>
+{% endblock %}

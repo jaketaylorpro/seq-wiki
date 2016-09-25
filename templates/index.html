@@ -1,0 +1,19 @@
+{% extends "layout.html" %}
+{% block body %}
+    <div class="jumbotron">
+        <h1 class="display-3">Welcome to Seqwiki</h1>
+        <p class="lead">
+            Seqwiki provides an intuitive diagram editing tool.
+            Easily create and show off diagrams these sequence diagrams to help demonstrate ... anything.
+        </p>
+        <hr class="m-y-2">
+        <p>
+            Try it out by creating one now.
+        </p>
+        <p class="lead">
+            <a class="btn btn-primary btn-lg" role="button" href="#" onclick="document.getElementById('new_post').submit();">New Seqwiki</a>
+        </p>
+    <form id="new_post" action="/seq" method="post">
+    </form>
+    </div>
+{% endblock %}
