@@ -85,8 +85,8 @@
 	        var _this = _possibleConstructorReturn(this, (SeqBlockEditPanel.__proto__ || Object.getPrototypeOf(SeqBlockEditPanel)).call(this, props));
 
 	        _this.state = {
-	            nameText: props.blockData.name,
-	            instructionsText: props.blockData.instructions.join('\n')
+	            nameText: props.blockData && props.blockData.name ? props.blockData.name : '',
+	            instructionsText: props.blockData && props.blockData.instructions ? props.blockData.instructions.join('\n') : ''
 	        };
 	        _this.handleCodeChange = _this.handleCodeChange.bind(_this);
 	        return _this;
@@ -97,6 +97,7 @@
 	        value: function handleCodeChange(e) {
 	            this.setState({ instructionsText: e.target.value });
 	            var svg = _sequenceDiagram2.default.parse(this.state.instructionsText);
+	            document.getElementById('preview-pane').innerHTML = '';
 	            svg.drawSVG(document.getElementById('preview-pane'));
 	        }
 	    }, {

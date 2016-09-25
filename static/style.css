@@ -2,3 +2,12 @@
   border: 1px solid rgba(0, 0, 0, 0.15);
   border-radius: .25rem;
 }
+
+.seq-block-edit-panel > div {
+  min-height: 300px;
+}
+
+.seq-block-edit-panel .code textarea {
+  width: 100%;
+  height: 100%;
+}

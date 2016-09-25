@@ -10,6 +10,7 @@ var sass = require('gulp-sass');
 var postcss = require('gulp-postcss');
 var autoprefixer = require('autoprefixer');
 var cssnano = require('gulp-cssnano');
+var expect = require('gulp-expect-file');
 
 var webpackOptions = {
     resolve: {
@@ -41,8 +42,8 @@ var webpackOptions = {
     }
 };
 
-gulp.task('node_modules', () => {
-    return gulp.src([
+gulp.task('node_modules_js', () => {
+    var files = [
         'node_modules/jquery/dist/jquery.js',
         'node_modules/babel-polyfill/dist/polyfill.js',
         'node_modules/react/dist/react-with-addons.js',
@@ -51,14 +52,16 @@ gulp.task('node_modules', () => {
         'node_modules/underscore/underscore.js',
         'other_modules/raphael.js',
         'other_modules/sequence-diagram-min.js'
-    ])
+    ];
+    return gulp.src(files)
         .pipe(concat('node_modules.js'))
+        .pipe(expect(files))
         // .pipe(uglify())
         .pipe(gulp.dest('static'));
 });
 
 
-gulp.task('node_modules', () => {
+gulp.task('node_modules_css', () => {
     return gulp.src([
         'node_modules/bootstrap/dist/css/bootstrap.css',
         'node_modules/tether/dist/css/tether.css'
@@ -88,6 +91,6 @@ gulp.task('application-sass', () => {
         .pipe(gulp.dest('static'));
 });
 
-gulp.task('build', ['node_modules', 'application-sass', 'application-jsx'] ,() => {
+gulp.task('build', ['node_modules_js','node_modules_css', 'application-sass', 'application-jsx'] ,() => {
 
 });

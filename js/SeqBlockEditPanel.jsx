@@ -13,14 +13,15 @@ class SeqBlockEditPanel extends React.Component {
     constructor(props){
         super(props);
         this.state = {
-            nameText: props.blockData.name,
-            instructionsText: props.blockData.instructions.join('\n')
+            nameText: props.blockData && props.blockData.name ? props.blockData.name : '',
+            instructionsText: props.blockData && props.blockData.instructions ? props.blockData.instructions.join('\n'): ''
         };
         this.handleCodeChange = this.handleCodeChange.bind(this);
     }
     handleCodeChange(e) {
         this.setState({ instructionsText:e.target.value });
         const svg = Diagram.parse(this.state.instructionsText);
+        document.getElementById('preview-pane').innerHTML='';
         svg.drawSVG(document.getElementById('preview-pane'));
     }
     render() {
